@@ -1,0 +1,31 @@
+{
+  "name": "pos-printer-project",
+  "version": "1.0.0",
+  "description": "A project to print to a POS printer using the node-thermal-printer library.",
+  "main": "src/index.ts",
+  "bin": "dist/index.js",
+  "scripts": {
+    "copy-assets": "cp -r assets dist",
+    "start": "ts-node src/index.ts",
+    "build": "tsc && npm run copy-assets && pkg . --out-path dist"
+  },
+  "dependencies": {
+    "node-thermal-printer": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/printer": "^0.4.5",
+    "pkg": "^5.8.1",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.0.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "pkg": {
+    "scripts": "dist/index.js",
+    "targets": [
+      "node14-macos-x64",
+      "node14-linux-x64",
+      "node14-win-x64"
+    ]
+  }
+}
